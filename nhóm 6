@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cửa Hàng Cây Cảnh Mini - Nhóm 6</title>
+    <!-- Thêm Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Cấu hình Font và Màu sắc tuỳ chỉnh (Tuỳ chọn) -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap');
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: #f3f4f6;
+        }
+        /* Hiệu ứng mượt mà khi cuộn */
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Header / Navbar -->
+    <header class="bg-green-600 text-white shadow-md fixed w-full top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold">Mầm Xanh Store</h1>
+            <nav class="hidden md:flex space-x-6">
+                <a href="#home" class="hover:text-green-200 transition">Trang Chủ</a>
+                <a href="#products" class="hover:text-green-200 transition">Sản Phẩm</a>
+                <a href="#about-us" class="hover:text-green-200 transition">Về Nhóm Chúng Mình</a>
+            </nav>
+            <div class="flex items-center">
+                <button onclick="toggleCart()" class="relative flex items-center bg-green-500 hover:bg-green-700 px-4 py-2 rounded-full transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                    Giỏ Hàng (<span id="cart-count">0</span>)
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-24 pb-12 bg-green-50 text-center">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl md:text-5xl font-bold text-green-800 mb-4">Mang Thiên Nhiên Vào Bàn Làm Việc Của Bạn</h2>
+            <p class="text-lg text-gray-600 mb-8">Chuyên cung cấp các loại cây cảnh mini, sen đá, xương rồng dễ chăm sóc.</p>
+            <a href="#products" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition">Xem Sản Phẩm Ngay</a>
+        </div>
+    </section>
+
+    <!-- Thông Tin Nhóm (Phần bắt buộc cho bài tập) -->
+    <section id="about-us" class="py-16 bg-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold text-green-800 mb-8 border-b-2 border-green-500 inline-block pb-2">Về Nhóm Chúng Mình</h2>
+            
+            <!-- Tên Nhóm -->
+            <h3 class="text-2xl font-semibold text-gray-700 mb-6">Nhóm: <span class="text-green-600">6</span></h3>
+            
+            <!-- Ảnh Cả Nhóm -->
+            <div class="max-w-3xl mx-auto mb-10 overflow-hidden rounded-xl shadow-lg border-4 border-green-100">
+                <img src="image_fe7a45.jpg" alt="Ảnh cả nhóm" class="w-full h-auto max-h-[500px] object-cover" onerror="this.src='https://placehold.co/800x400/16a34a/ffffff?text=Anh+Ca+Nhom+O+Day'">
+                <p class="text-sm text-gray-500 mt-2 pb-2 italic">Hình ảnh các thành viên Nhóm 6</p>
+            </div>
+
+            <!-- Danh sách thành viên -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto">
+                <!-- Thành viên 1 -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition">
+                    <div class="w-20 h-20 bg-green-200 rounded-full mx-auto mb-4 flex items-center justify-center text-xl font-bold text-green-700">M</div>
+                    <h4 class="font-bold text-lg">Cao Xuân Hải Minh</h4>
+                    <p class="text-gray-600 text-sm">Nhóm trưởng / Lập trình</p>
+                </div>
+                <!-- Thành viên 2 -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition">
+                    <div class="w-20 h-20 bg-green-200 rounded-full mx-auto mb-4 flex items-center justify-center text-xl font-bold text-green-700">K</div>
+                    <h4 class="font-bold text-lg">Lã Ngọc Khải</h4>
+                    <p class="text-gray-600 text-sm">Thiết kế Giao diện</p>
+                </div>
+                <!-- Thành viên 3 -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition">
+                    <div class="w-20 h-20 bg-green-200 rounded-full mx-auto mb-4 flex items-center justify-center text-xl font-bold text-green-700">H</div>
+                    <h4 class="font-bold text-lg">Trần Tuấn Hưng</h4>
+                    <p class="text-gray-600 text-sm">Nội dung & Hình ảnh</p>
+                </div>
+                <!-- Thành viên 4 -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition">
+                    <div class="w-20 h-20 bg-green-200 rounded-full mx-auto mb-4 flex items-center justify-center text-xl font-bold text-green-700">S</div>
+                    <h4 class="font-bold text-lg">Ngô Trường Sơn</h4>
+                    <p class="text-gray-600 text-sm">Kiểm thử / Báo cáo</p>
+                </div>
+            </div>
+            <p class="mt-8 text-gray-600 italic text-sm">Đây là sản phẩm bài tập môn Tin Học - Lớp 10A1 - Trường THPT XYZ.</p>
+        </div>
+    </section>
+
+    <!-- Danh Sách Sản Phẩm -->
+    <section id="products" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-green-800 mb-12">Sản Phẩm Nổi Bật</h2>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <!-- Sản phẩm 1 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300">
+                    <img src="https://placehold.co/400x300/e2e8f0/475569?text=Sen+Da+Kim+Cuong" alt="Sen Đá Kim Cương" class="w-full h-48 object-cover">
+                    <div class="p-5">
+                        <h3 class="font-bold text-lg mb-2">Sen Đá Kim Cương</h3>
+                        <p class="text-gray-600 text-sm mb-4">Dễ trồng, phù hợp để bàn làm việc.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-green-600 text-xl">55.000đ</span>
+                            <button onclick="addToCart('Sen Đá Kim Cương', 55000)" class="bg-green-100 text-green-700 hover:bg-green-600 hover:text-white px-4 py-2 rounded-lg font-semibold transition">Thêm</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sản phẩm 2 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300">
+                    <img src="https://placehold.co/400x300/e2e8f0/475569?text=Xuong+Rong+Tai+Tho" alt="Xương Rồng Tai Thỏ" class="w-full h-48 object-cover">
+                    <div class="p-5">
+                        <h3 class="font-bold text-lg mb-2">Xương Rồng Tai Thỏ</h3>
+                        <p class="text-gray-600 text-sm mb-4">Hình dáng ngộ nghĩnh, sức sống mãnh liệt.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-green-600 text-xl">65.000đ</span>
+                            <button onclick="addToCart('Xương Rồng Tai Thỏ', 65000)" class="bg-green-100 text-green-700 hover:bg-green-600 hover:text-white px-4 py-2 rounded-lg font-semibold transition">Thêm</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sản phẩm 3 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300">
+                    <img src="https://placehold.co/400x300/e2e8f0/475569?text=Cay+Kim+Tien+Mini" alt="Cây Kim Tiền Mini" class="w-full h-48 object-cover">
+                    <div class="p-5">
+                        <h3 class="font-bold text-lg mb-2">Cây Kim Tiền Mini</h3>
+                        <p class="text-gray-600 text-sm mb-4">Mang lại may mắn, tài lộc cho gia chủ.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-green-600 text-xl">120.000đ</span>
+                            <button onclick="addToCart('Cây Kim Tiền Mini', 120000)" class="bg-green-100 text-green-700 hover:bg-green-600 hover:text-white px-4 py-2 rounded-lg font-semibold transition">Thêm</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sản phẩm 4 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300">
+                    <img src="https://placehold.co/400x300/e2e8f0/475569?text=Cay+Luoi+Ho+Thai" alt="Cây Lưỡi Hổ Thái" class="w-full h-48 object-cover">
+                    <div class="p-5">
+                        <h3 class="font-bold text-lg mb-2">Cây Lưỡi Hổ Thái</h3>
+                        <p class="text-gray-600 text-sm mb-4">Lọc không khí cực tốt, chịu bóng râm.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-green-600 text-xl">85.000đ</span>
+                            <button onclick="addToCart('Cây Lưỡi Hổ Thái', 85000)" class="bg-green-100 text-green-700 hover:bg-green-600 hover:text-white px-4 py-2 rounded-lg font-semibold transition">Thêm</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Khung Giỏ Hàng (Modal) -->
+    <div id="cart-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex justify-center items-center">
+        <div class="bg-white rounded-xl shadow-2xl p-6 w-11/12 max-w-md max-h-[80vh] flex flex-col relative">
+            <button onclick="toggleCart()" class="absolute top-4 right-4 text-gray-500 hover:text-red-500">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <h2 class="text-2xl font-bold border-b pb-4 mb-4 text-green-800">Giỏ Hàng Của Bạn</h2>
+            
+            <!-- Danh sách item trong giỏ -->
+            <div id="cart-items" class="overflow-y-auto flex-grow space-y-4">
+                <p class="text-gray-500 text-center italic" id="empty-msg">Giỏ hàng đang trống.</p>
+                <!-- Sản phẩm sẽ được thêm bằng Javascript vào đây -->
+            </div>
+
+            <!-- Tổng tiền và Nút thanh toán -->
+            <div class="border-t pt-4 mt-4">
+                <div class="flex justify-between font-bold text-lg mb-4">
+                    <span>Tổng cộng:</span>
+                    <span id="cart-total" class="text-green-600">0đ</span>
+                </div>
+                <button onclick="checkout()" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded-lg transition">Thanh Toán</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6 text-center">
+        <p>&copy; 2026 Mầm Xanh Store. Bài tập môn Tin Học của Nhóm 6.</p>
+    </footer>
+
+    <!-- JavaScript logic -->
+    <script>
+        // Mảng chứa các sản phẩm trong giỏ
+        let cart = [];
+
+        // Hàm định dạng số tiền
+        function formatMoney(amount) {
+            return amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + "đ";
+        }
+
+        // Thêm sản phẩm vào giỏ
+        function addToCart(name, price) {
+            const existingItem = cart.find(item => item.name === name);
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({ name: name, price: price, quantity: 1 });
+            }
+            updateCartUI();
+            
+            // Hiển thị thông báo nhỏ (thay thế cho alert)
+            showToast(`Đã thêm ${name} vào giỏ!`);
+        }
+
+        // Bật/tắt hiển thị giỏ hàng
+        function toggleCart() {
+            const modal = document.getElementById('cart-modal');
+            modal.classList.toggle('hidden');
+        }
+
+        // Cập nhật giao diện giỏ hàng (số lượng trên nút bấm và danh sách trong modal)
+        function updateCartUI() {
+            const cartItemsContainer = document.getElementById('cart-items');
+            const cartCountEl = document.getElementById('cart-count');
+            const cartTotalEl = document.getElementById('cart-total');
+            const emptyMsg = document.getElementById('empty-msg');
+
+            // Cập nhật số lượng trên icon
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCountEl.innerText = totalItems;
+
+            // Xóa nội dung cũ
+            cartItemsContainer.innerHTML = '';
+            let totalPrice = 0;
+
+            if (cart.length === 0) {
+                cartItemsContainer.appendChild(emptyMsg);
+                emptyMsg.style.display = 'block';
+            } else {
+                emptyMsg.style.display = 'none';
+                cart.forEach((item, index) => {
+                    totalPrice += item.price * item.quantity;
+                    const itemEl = document.createElement('div');
+                    itemEl.className = 'flex justify-between items-center bg-gray-50 p-3 rounded';
+                    itemEl.innerHTML = `
+                        <div>
+                            <p class="font-semibold">${item.name}</p>
+                            <p class="text-sm text-gray-500">${formatMoney(item.price)} x ${item.quantity}</p>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="font-bold">${formatMoney(item.price * item.quantity)}</span>
+                            <button onclick="removeItem(${index})" class="text-red-500 hover:bg-red-100 p-1 rounded transition text-sm px-2">Xóa</button>
+                        </div>
+                    `;
+                    cartItemsContainer.appendChild(itemEl);
+                });
+            }
+
+            cartTotalEl.innerText = formatMoney(totalPrice);
+        }
+
+        // Xóa sản phẩm khỏi giỏ
+        function removeItem(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        // Xử lý nút thanh toán
+        function checkout() {
+            if (cart.length === 0) {
+                showToast("Giỏ hàng đang trống, hãy chọn mua gì đó nhé!");
+                return;
+            }
+            
+            // Thay vì dùng alert(), tạo một hộp thoại tuỳ chỉnh hoặc reset giỏ
+            const total = document.getElementById('cart-total').innerText;
+            showToast(`Cảm ơn bạn! Đơn hàng trị giá ${total} đã được gửi.`);
+            
+            // Xóa giỏ hàng sau khi "thanh toán"
+            cart = [];
+            updateCartUI();
+            toggleCart(); // Đóng modal
+        }
+
+        // Hàm tạo thông báo nổi (Toast) để tránh dùng alert()
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.className = 'fixed bottom-4 right-4 bg-green-600 text-white px-6 py-3 rounded-lg shadow-lg transform transition-all duration-300 translate-y-0 opacity-100 z-[60]';
+            toast.innerText = message;
+            document.body.appendChild(toast);
+
+            // Tự động biến mất sau 3 giây
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateY(100%)';
+                setTimeout(() => {
+                    document.body.removeChild(toast);
+                }, 300);
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
